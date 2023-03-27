@@ -13,7 +13,6 @@ export default function App() {
 
   return (
     <div>
-      <p>sys patys</p>
       {blogData}
     </div>
   )
