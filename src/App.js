@@ -39,10 +39,17 @@ export default function App() {
       setEndDate(end)
     }
 
-    const filteredByDate = data.filter((item) => {
-      startDate && endDate ? item.date >= startDate && item.date <= endDate : data;
-    }
-    )
+    const filteredByDate = startDate && endDate 
+    ? data.filter(item => item.date >= startDate && item.date <= endDate) : data;
+    
+    const dateData = filteredByDate.map(item =>{
+      return (
+        <Blog
+        item={item}/>
+      )
+    })
+
+    
     return (
         <div>
             <Header 
@@ -51,6 +58,7 @@ export default function App() {
                     chooseEndDate={chooseEndDate}
                     />
             {blogData}
+            {dateData}
         </div>
     )
 }
