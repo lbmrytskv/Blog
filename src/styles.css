@@ -36,3 +36,11 @@
 .header {
     display:flex;
 }
+
+.dates {
+    margin: 12px;
+}
+
+.sorting {
+    margin: 12px;
+}
