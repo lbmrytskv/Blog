@@ -44,3 +44,9 @@
 .sorting {
     margin: 12px;
 }
+
+.sortingbutton {
+    margin: 11px;
+    width: 70px;
+    height: 30px;
+}

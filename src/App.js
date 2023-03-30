@@ -25,7 +25,7 @@ export default function App() {
       return item.date >= startDate && item.date <= endDate;
     }
     return true;})
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .sort((a, b) => sortedData==='desc'? new Date(b.date) - new Date(a.date): new Date(a.date) - new Date(b.date));
    
 
   //using map method to render our data
@@ -53,11 +53,10 @@ export default function App() {
     setEndDate(end);
   }
 
-  function sortByDate(event) {
-    const sorted = event.target.value;
-    setSortedData(sorted);
+  function changeSortOrder() {
+    setSortedData(sortedData ==='asc'?'desc':'asc')
   }
-
+  
 
   return (
     <div>
@@ -66,10 +65,8 @@ export default function App() {
         chooseCategory={chooseCategory}
         chooseStartDate={chooseStartDate}
         chooseEndDate={chooseEndDate}
-        startDate={startDate}
-        endDate={endDate}
-        sortedData = {sortedData}
-        sortByDate={sortByDate}
+        changeSortOrder={changeSortOrder}
+       
       
       />
       {blogData}

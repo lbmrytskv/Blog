@@ -1,7 +1,8 @@
-import Dropdown from 'react-bootstrap/Dropdown';
+//package for a dropdown menu
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 
-
+//created an array so we can map over it and apply our category filter
 const headerList = [
   {title: "All"},
   {title: "Technology",
@@ -17,24 +18,24 @@ export default function Header(props) {
     <div className='header'>
       <DropdownButton id="dropdown-basic-button" title="Categories">
           {headerList.map((header) => (
-              <Dropdown.Item 
+              <DropdownItem
                   onClick={props.chooseCategory}
                   type={header.category}>
                   {header.title}
-              </Dropdown.Item>
+              </DropdownItem>
           ))
           }
       </DropdownButton>
       <div className='dates'>
       <label>Start Date:
-        <input type="date" value={props.startDate} onChange={props.chooseStartDate}/>
+        <input type="date" onChange={props.chooseStartDate}/>
       </label>
       <label>
         End Date: 
-        <input type="date" value={props.endDate} onChange={props.chooseEndDate}/>
+        <input type="date" onChange={props.chooseEndDate}/>
       </label>
       </div>
-      <button value={props.sortedData} onClick={props.sortByDate}>knopochka chinanen</button>
+      <button onClick={props.changeSortOrder} className="sortingbutton">Sort</button>
       </div>
   );
 }
